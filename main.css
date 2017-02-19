@@ -13,17 +13,6 @@ html, body {
 	margin: auto;
 }
 
-.nav-menu li {
-	color: white;
-	background-color: black;
-	display: inline-block;
-	height: 100%;
-	line-height: 50px;
-	font-family: 'Roboto Condensed', sans-serif;
-	padding: 0 25px;
-	float: right;
-}
-
 .nav-menu li a {
 	display: table-cell;
 	height: 100%;
@@ -36,7 +25,6 @@ html, body {
 nav {
 	width: 100%;
 	background-color: black;
-	height: 50px;
 }
 
 .nav-menu {
@@ -44,7 +32,6 @@ nav {
 	padding: 0;
 	margin: 0;
 	background-color: black;
-	float: right;
 	height: 50px;
 	display: inline-block;
 	white-space: nowrap;
@@ -77,10 +64,18 @@ nav {
 
 	.nav-menu li.mobile-view {
 		display: inline-block;
-		float: right;
 	}
 
 	li.mnu-btn {
 		display: none;
 	}
+}
+
+.nav-middle {
+/*	height: 100%; */
+}
+
+.clearer {
+	clear: both;
+	display: block;
 }
