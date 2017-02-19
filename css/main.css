@@ -1,6 +1,9 @@
+
+/* Universal */
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 html, body {
@@ -13,6 +16,10 @@ html, body {
 	margin: auto;
 }
 
+/* End Universal */
+
+
+/* Nav bar */
 .nav-menu li {
 	color: white;
 	background-color: black;
@@ -101,3 +108,5 @@ nav {
 	line-height: 0;
 	float: none;
 }
+
+/* End nav bar */
