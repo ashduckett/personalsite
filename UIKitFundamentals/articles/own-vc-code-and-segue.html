@@ -1,0 +1,39 @@
+<div class="article" id="own-vc-code-and-segue">
+    <p>
+        In storyboard, Apple refers to the transition between view controllers as a segue. These are shown in storyboard
+        with a line between two storyboards with a circle in the middle.
+    </p>
+    <p>
+        We have learned to use just code to display a storyboard view controller. Now we're going to combine code with a storyboard
+        segue.
+    </p>
+    <p>
+        In storyboard, open the popup menu you get from either view controller icon. Under triggered segues drag manual to view controller you
+        want to display. At this point you'll get a few options for the segue, choose modal here.
+    </p>
+    <p>
+        You should now set the storyboard identifier for the segue. Select it in the canvas, go to attributes inspector and give it an identifier.
+    </p>
+    <p>
+        <code>
+            <pre>
+                @IBAction func rollDice() {
+                    performSegueWithIdentifier(identifier: "rollDice", self)
+                }
+            </pre>
+        </code>
+
+    </p>
+    <p>
+        If you ran this with the dice example, you'd see the view, but no dice. This is because we never set
+        the values on the DiceViewController. In fact we never even had a reference to the DiceViewController.
+        I wonder, then why it didn't error as before? Perhaps because we're using a connected up DiceViewController, but
+        one without values set.
+    </p>
+    <p>
+        This needs to be resolved, however, first lets see how you can setup a segue with no code.
+    </p>
+
+
+
+</div>

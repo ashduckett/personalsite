@@ -1,0 +1,17 @@
+1.	Make the images responsive. At the moment you're just putting them there and they won't resize. 		You could set a max width and max height on them.
+
+2.	Center the images.
+
+3.	Center the text above them.
+
+4.	Bring in PHP. Just a test page for now. Do php_info() to prove it's working.
+
+5.	Figure out a database. This could be useful for
+		* a) auditing stats on the site
+		* b) blogging
+
+6.	Add a contact option.
+
+7.	Style the text.
+
+8.	Add spacing where required.

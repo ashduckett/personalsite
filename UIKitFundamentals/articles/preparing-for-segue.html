@@ -1,0 +1,35 @@
+<div class="article" id="preparing-for-segue">
+    <p>
+        We have learned to present a custom view controller in a number of ways. We have used code, we have
+        used code and a segue where the segue is created in storyboard and the action is invoked in code, and we'have
+        also learned to set up a segue entirely in storyboard.
+    </p>
+    <p>
+        Remember that when we did it entirely with code and grabbed the storyboard instance of our view controller,
+        we get an instance and set the instance variables on it directly. We get a chance to prepare for its display.
+    </p>
+    <p>
+        When we use a segue, the view controller never makes an appearance in our code because storyboard hides the creation
+        of the object.
+    </p>
+    <p>
+        All view controller inherit a method named prepareForSegue(). It's invoked right before any segue is performed. Its entire
+        purpose is to allow the current view controller to configure the new one.
+    </p>
+
+    <p>
+        <code>
+            <pre>
+override func prepareForSegue(segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == "rollDice" {
+        let controller = segue.destination as! DiceViewController
+
+        controller.firstValue = randomDiceValue()
+        controller.secondValue = randomDiceValue()
+    }
+}
+
+
+
+    </p>
+</div>

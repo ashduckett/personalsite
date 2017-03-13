@@ -1,0 +1,56 @@
+  <div class="article" id="transitioning-button">
+
+
+        <h3>Transitioning to Storyboard Button</h3>
+        <p>
+            Now we want to connect up our button the way we did for the label.
+        </p>
+        <p>
+            First of all, drag a button onto your view.
+        </p>
+        <p>
+            At this point, take the opportunity to set the button's text to "Click", and the label's text to "0".
+        </p>
+        <p>
+            Now we want to set the target action on the button. Remember the addAction() method? We need to do the same thing here,
+            tying together the target, which is the view controller, the action, which is the incrementCount() method and the event that
+            will fire the action on the target.
+        </p>
+        <p>
+            Before we do this, we need to mark our method as an IBAction.
+        </p>
+        <p>
+            <pre>
+                <code>
+    import UIKit
+                        
+    class ViewController: UIViewController {
+        var count = 0
+        @IBOutlet var label: UILabel!
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+        }
+
+        @IBAction func incrementCount() {
+            self.count = self.count + 1
+            self.label.text = "\(self.count)"
+        }
+    }
+                </code>
+            </pre>
+            </p>
+            <p>
+                Control Click on the button in the outline view, go down to Touch Up Inside, drag to the view controller icon,
+                I think either will do, and then choose the method we want to fire. The video shows the one in the canvas view, but
+                try the one in outline view too.
+        </p>
+        <p>
+                The other way of doing this is to use the canvas view. You can control click on label in the canvas view,
+                drag from the Touch Up Inside event over to the view controller icon in the canvas (or possible the outline view),
+                and select the method from there.
+            </p>
+            <p>
+                At this point, Click Counter should run.
+            </p>
+    </div>

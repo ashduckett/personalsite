@@ -1,0 +1,86 @@
+<div class="article" id="transitioning-label">
+        <h3>Transitioning to Storyboard Label</h3>
+        <p>
+            Now we've seen how to build a simple app like this entirely in code, let's take a look at how storyboard represents objects.
+        </p>
+        <p>
+            Storyboard has three different ways of showing our objects. There's the expandable outline view, in the visual canvas view,
+            and of course the text editor itself.
+        </p>
+        <p>
+            You can change your code to look like the following:
+        </p>
+                <p>
+            <pre>
+                <code>
+import UIKit
+                    
+class ViewController: UIViewController {
+    var count = 0
+    var label: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    func incrementCount() {
+        self.count = self.count + 1
+        self.label.text = "\(self.count)"
+    }
+}
+                </code>
+            </pre>
+        </p>
+        <p>
+            This way, all we have are our properties, currently one unconnected label and our model. We also hold on to the incrementCount() method.
+        </p>
+        <p>
+            As it is, storyboard doesn't know anything about the label we have declared. We can change that:
+        </p>
+                <p>
+            <pre>
+                <code>
+import UIKit
+                    
+class ViewController: UIViewController {
+    var count = 0
+    @IBOutlet var label: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    func incrementCount() {
+        self.count = self.count + 1
+        self.label.text = "\(self.count)"
+    }
+}
+                </code>
+            </pre>
+        </p>
+    <p>
+        Notice that when you do this, Xcode shows a circle in the margin on the left of your outlet.
+    </p>
+    <p>
+        Closing the code and looking at the outline and canvas views, notice that view controllers are represented using yellow circular icons.
+        The outline view is a hierarcal view of the view controller, the view and any sub views. The canvas view is another representation of the
+        exact same objects.
+    </p>
+    <p>
+        If you control click on either of the two view controller yellow icons, we can see our popup connections menu.
+        Since we've marked our label as an outlet, we can see it here under the outlets section. The empty circle next to our
+        label property is empty, and this is because it hasn't been initialised yet. So let's do that now.
+    </p>
+    <p>
+        To initialise our label, first we drag a label in from the objects menu. Next you can control click from the label in the outline view,
+        dragging from new referencing outlet into the label in the canvas view and selecting the label property.
+    </p>
+    <p>
+        If you now check the popup connections menu from either of the yellow icons in the canvas view or the outline view, you should be expandable
+        to see that our label property is now set. You can get the same information by control clicking the label in the canvas view. You can unset it
+        using the small x.
+    </p>
+    <p>
+        Another way to set an outlet property is to drag from the circle shown in the margin of the code editor to your label.
+    </p>
+    </div>

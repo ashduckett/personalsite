@@ -1,0 +1,79 @@
+<div class="article" id="presenting-own-vc">
+    <p>
+            There is a sample application that has a method which needs to display a custom view controller.
+            Here's how you might have gone about implementing it.
+
+    </p>
+    <p>
+        <code>
+            <pre>
+@IBAction func rollTheDice() {
+
+    let controller = DiceViewController()
+
+    // These are instance variables on the DiceViewController class
+    // They are declared as optionals with Int?
+
+    // We set them here so that they have a value before the controller is displayed
+    controller.firstValue = self.randomDiceValue()
+    controller.secondValue = self.randomDiceValue()
+
+    // Also worth noting is that using the values above, the images are set for the dice
+    // inside viewDidLoad()
+
+    // The values are options because we expect them to be nil until the rollTheDice() method is called.
+
+    self.presentViewController(controller, animated: true, completion: nil)        
+}
+            </pre>
+
+        </code>
+
+
+    </p>
+    <p>
+        You'll find you get an error if you run this. This is because firstDie is nil. firstDie is an implicitly
+        unwrapped optional so we just use it in viewWillAppear(). firstDie is an @IBOutlet to the first die image.
+    </p>
+    <p>
+        On running the given code, in the example, the outlets to our dice views were created in storyboard. We created our
+        instance above without storyboard. This means that our button, our image views and the main view, the root view, won't be set.
+        What we need is a fully assembled dice view controller from storyboard.
+    </p>
+        <p>
+        <code>
+            <pre>
+@IBAction func rollTheDice() {
+
+//    let controller = DiceViewController()
+
+    var controller: DiceViewController
+    controller = self.storyboard?.instantiateViewControllerWithIdentifier("DiceViewController") as! DiceViewController
+    
+    controller.firstValue = self.randomDiceValue()
+    controller.secondValue = self.randomDiceValue()
+
+    self.presentViewController(controller, animated: true, completion: nil)        
+}
+            </pre>
+
+        </code>
+
+
+    </p>
+    <p>
+        Notice the identifier used in the instantiateViewControllerWithIdentifier() method. If you open storyboard and click on
+        the DiceViewController, you can look in the Utilities Pane, and click on the identity inspector. You'll see the ID set in the
+        Storyboad ID field.
+    </p>
+    <p>
+        Something to note here is that before we present the firstValue and secondValue values using the images on the DiceViewController,
+        we set the values from the other view controller.
+    </p>
+    <p>
+        It is usually necessary for a presenting controller to configure or pass data to a new view controller.
+    </p>
+
+
+
+</div>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>Variables and Types</h1>
+<h2>Welcome to Swift for Beginners</h2>
+<p>
+A variable is a fundamental unit of programming which we use to assign a name to a value. Variables allow us to store information so we can use it later when we need it.
+</p>
+<h2>Intro to Strings</h2>
+<p>
+A strings are a sequence of characters.
+</p>
+<h2>String Initialisation</h2>
+<p>
+Very often we'll initialise strings using string literals.
+<code>
+let myString = "A string"
+var myEmptyString = ""
+var yetAnotherString = String()
+</code>
+</p>
+<h2>Properities</h2>
+<p>
+The characters property holds the collection of characters that make up a string. The property can be used to loop through all of the characters in a string.
+</p>
+<code>
+var name = "Ash"
+for character in name.characters {
+	print("\(name)")
+}
+</code>
+<p>
+I have a question. Is this collection an array?
+</p>
+<p>
+It's worth noting that you can get the number of characters in a string using the character property's count property.
+</p>
+<code>
+var name = "Ash"
+var charCountInName = name.characters.count
+</code>
+<p>
+You can also reverse a string.
+</p>
+<code>
+var name ="Ash"
+var reversedName = name.characters.reversed()
+</code>
+<p>
+It's also possible to get the unicode scalars.
+</p>
+<code>
+var name = "Ash"
+var scalars = name.unicodeScalars
+</code>
+<p>
+You can access the emoji keyboard from within playgrounds by pressing control + command + spacebar.
+</p>
+<p>
+Question: What will unicodeScalars actually get you? Numbers?
+</p>
+<h2>String Interpolation</h2>
+<p>
+var name = "Ash"
+var welcomeMessage = "Welcome, \(name), it's nice to see you."
+</p>
+<h2>String Manipulation</h2>
+<h3>String Concatination</h3>
+<p>
+<code>
+var name = "Ash"
+var age = "28"
+var msg = "Hello, " + name + ", you are " + age + " years old."
+</code>
+</p>
+<h3>Finding a Substring</h3>
+<code>
+var word = "concatinate"
+word.contains("cat")
+</code>
+<p>
+The method call will return true.
+</p>
+<h3>Replacing a Substring</h3>
+<code>
+var wordOne = "Hello, my name is Ash"
+var newWord = wordOne.replacingOccurrences(of: "e", with: "3")
+</code>
+<p>
+All occurrences of "e" will now be written with a 3.
+</p>
+
+</body>
+</html>

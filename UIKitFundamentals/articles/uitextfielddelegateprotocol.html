@@ -1,0 +1,53 @@
+<div class="article" id ="uitextfielddelegateprotocol">
+
+<h2>Editing Lifecycle Methods</h2>
+<h3>textFieldShouldBeginEditing(_:)</h3>
+<p>
+    Before becoming the first responder, the text field calls its delegate's
+    textFieldShouldBeginEditing(_:) method. Use it to allow or prevent the editing
+    of the text field's contents.
+</p>
+
+<h3>textFieldDidBeginEditing(_:)</h3>
+<p>
+    Called as soon as the user taps inside the text field to edit.
+</p>
+<h3>textFieldShouldEndEditing(_:)</h3>
+<p>
+    Before resigning as first responder, this method is called. Use this method
+    to validate the current input.
+
+</p>
+<h3>textFieldDidEndEditing(_:)</h3>
+<p>
+    This method is called after the text field resigns as first responder.
+
+</p>
+
+<h2>The Primary Method for Controlling Text</h2>
+<h3>textField(_:shouldChangeCharactersIn:replacementString:)</h3>
+<p>
+    This method is called whenever the current text changes. You can do what you need to,
+    then return true if you want to allow the text field to change its text.
+</p>
+
+
+<h2>The Clear Button (The x on the right side of some text fields</h2>
+<h3>textFieldShouldClear(_:)</h3>
+<p>
+    This method is called when the user taps the built-in button to clear
+    the text.
+</p>
+
+<h2>The Return Key in the Keyboard</h2>
+<h3>textFieldShouldReturn(_:)</h3>
+<p>
+    This method is called then the user taps the keyboard's return button. You can implement this
+    to dismiss the keyboard on pressing return. This can be done with textField.resignFirstResponder(),
+    and then returning true.
+</p>
+<p>
+    Interestingly, when creating a class to act as a delegate, the instructor subclasses NSObject. Why?
+</p>
+
+</div>

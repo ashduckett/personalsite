@@ -1,0 +1,37 @@
+<div id="click-counter-plan" class="article">
+    <h3>Click Counter</h3>
+    <p>
+        Click counter is a simple application that shows a label and a button. Initially
+        the label will show a 0. When you click on the button, the value in the label will
+        increment.
+    </p>
+        <img src="../img/click-counter-1.png">
+    <p>
+        All of the objects we're interested in are shown as rectangles. Object properties will
+        be represented with circles. Looking at the diagram above, you can see a view property 
+        on the view controller. All view controllers inherit a view property which points to the root
+        view of a page. In this case, the view that paints the white background.
+    </p>
+    <p>
+        For our click counter app, we'll need two more objects; the button and the label. We'll
+        also need somewhere to store the current value of the int value displayed in the label. We
+        can call this count and put it on the view controller.
+    </p>
+    <img src="../img/click-counter-2.png">
+    <p>
+        We have a model that stores the click count, we have view objects that paint the screen and
+        a view controller that ties everything together. These objects will be created and connected 
+        right before the page is displayed.
+    </p>
+    <img src="../img/click-counter-3.png">
+    <p>
+        Imagine that the user hits the button. The button tap will be turned into an event. This will invoke an
+        action in the view controller. Next the view controller will update the model. At this point the view controller
+        will also need to update the text of the label. At the moment it has no way to do this. In order for this to happen
+        we need to add a label property to the view controller so it has access to it.
+    </p>
+    <img src="../img/click-counter-4.png">
+    <p>
+        This will form the plan.
+    </p>
+</div>

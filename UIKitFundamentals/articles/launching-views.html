@@ -1,0 +1,89 @@
+
+<div class="article" id="launching-views">
+    <p>
+        If we had the code for the message app, the code that presents the image picker view
+        on top of the composer view would be in the view controller that's currently on screen.
+        This would be the ComposeMessageVC. The invocation would look like this:
+    </p>
+    <p>
+        <code>
+            <pre>
+                self.presentViewController(controller, animated: true, completion: nil)
+            </pre>
+        </code>
+    </p>
+    <p>
+        The last one, completion, is a closure statement that can be executed once the view is presented.
+        The second one specifies whether or not you want the view to be displayed with an animation, if this is
+        false, it will appear straight on the screen. The first argument is a reference to the view controller
+        that's being presented.
+    </p>
+    <h3>Launching the Image Picker View</h3>
+    <p>
+        You're probably familiar with views like the camera roll, the activity view and the alert view.
+        Here's an example of displaying the camera roll:
+    </p>
+    <p>
+        <code>
+            <pre>
+@IBAction func experiment() {
+    let controller = UIImagePickerController()
+    self.presentViewController(controller, animated: true, completion: nil)
+}
+
+            </pre>
+        </code>
+    </p>
+    <p>
+        Note that you will also need to add a key pair value to the project's Info.plist
+        file with the key "Privacy - Photo Library Usage Description" and any value you want.
+    </p>
+    <h3>Launching the Activity View</h3>
+    <p>
+        <code>
+            <pre>
+                @IBAction func experiment() {
+                    let image = UIImage();
+                    let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                    self.presentViewController(controller, animated: true, completion: nil)
+                }
+
+            </pre>
+        </code>
+    </p>
+    <h3>Launching the Alert View</h3>
+    <p>
+        <code>
+            <pre>
+// This will display the alert view, but gives the user no way of closing it!                
+@IBAction func experiment() {
+    let controller = UIAlertController()
+    controller.title = "Test alert"
+    controller.message = "This is a test"
+
+    self.presentViewController(controller, animated: true, completion: nil)
+}
+            </pre>
+        </code>
+    </p>
+        <p>
+        <code>
+            <pre>
+// This will display an alert view with an okay button the user can use to dismiss it with.                
+@IBAction func experiment() {
+    let controller = UIAlertController()
+    controller.title = "Test alert"
+    controller.message = "This is a test"
+
+    let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default)
+
+    controller.addAction(okAction)
+    self.presentViewController(controller, animated: true, completion: nil) { 
+        action in self.dismissViewControllerAnimated(true, completion: nil)
+
+    }
+}
+            </pre>
+        </code>
+    </p>
+</div>

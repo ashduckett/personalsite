@@ -1,0 +1,189 @@
+<div class="article" id="without-storyboard">
+    <h3>Creating Click Counter without Storyboard</h3>
+    <p>
+        First of all create a single view application and name it Click Counter.
+        Open ViewController.swift and you should see something like the following
+    </p>
+    <p>
+        <pre>
+            <code>
+import UIKit
+                                
+class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+            </code>
+        </pre>
+    </p>
+    <p>
+        If you have any other methods, you can delete them.
+    </p>
+    <p>
+        The viewDidLoad() function runs just once, after the intial view object is set.
+        We'll be using this code to set up our UI.
+    </p>
+    <p>
+        <pre>
+            <code>
+import UIKit
+                                
+class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var label = UILabel()
+        label.frame = CGRect.init(150, 150, 60, 60);
+        label.text = "0"
+                    
+        self.view.addSubview(label)
+    }
+}
+            </code>
+        </pre>
+    </p>
+    <p>
+        If you run the above code, you will see that we have a UI with a label on it.
+        Next, let's code the button.
+    </p>
+    <p>
+        <pre>
+            <code>
+import UIKit
+                                
+class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var label = UILabel()
+        label.frame = CGRect.init(150, 150, 60, 60);
+        label.text = "0"
+                    
+        self.view.addSubview(label)
+
+        var button = UIButton()
+        button.frame = CGRect.init(150, 250, 60, 60)
+        button.setTitle("Click", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        self.addSubview(button)
+    }
+}
+            </code>
+        </pre>
+    </p>
+    <p>
+        If you run this, you should find that we now have both controls on the
+        screen. The button, however does nothing, and the label isn't getting updated.
+        Property wise, on the view controller, we only have the view property.
+    </p>
+    <p>
+        In the following code, we do a few things. Firstly, we add our model as a property on the view controller. This is the count
+        property. Next we add a label property. This can be thought of an outlet, because it will be used to reach out to the UI. This
+        property alone won't be enough, just sitting there, so notice that we set it to be the label we created before, right after we
+        create it. Lastly we add an incrementCount() method. This method updates the model, and then updates the view.
+     </p>
+     <p>
+        <pre>
+            <code>
+import UIKit
+                    
+class ViewController: UIViewController {
+    var count = 0
+    var label: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var label = UILabel()
+        label.frame = CGRect.init(150, 150, 60, 60);
+        label.text = "0"
+        
+        self.view.addSubview(label)
+        self.label = label
+
+        var button = UIButton()
+        button.frame = CGRect.init(150, 250, 60, 60)
+        button.setTitle("Click", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        self.addSubview(button)
+    }
+
+    func incrementCount() {
+        self.count = self.count + 1
+        self.label.text = "\(self.count)"
+    }
+}
+                    </code>
+                        </pre>
+                    </p>
+                    <p>
+                        We're close. But we still need the button to call the incrementCount() method.
+                    </p>
+                    <p>
+                        Think back to the button. The button object is an instantiation of the UIButton class.
+                        This object belongs to a category of objects called control objects. This means it turns
+                        user actions, such as finger taps, into events.
+                    </p>
+                    <p>
+                        Our next step is to create an object inside the button. This object will tell the button to contact
+                        its view controller when it's clicked. This object is known as a target action, which is where IBAction
+                        is derived from as a word.
+                    </p>
+                    <p>
+                        A target action holds three key pieces of information. a) An object to notify, which is the target. This is
+                        our view controller. The method on the target to use, which is the action. Also it holds the event that will trigger
+                        the target action.
+                    </p>
+                    <p>
+                        Let's now add the target action to our button.
+                    </p>
+
+                    <p>
+                        <pre>
+                            <code>
+            import UIKit
+                                
+            class ViewController: UIViewController {
+                var count = 0
+                var label: UILabel!
+                
+                override func viewDidLoad() {
+                    super.viewDidLoad()
+                    var label = UILabel()
+                    label.frame = CGRect.init(150, 150, 60, 60);
+                    label.text = "0"
+                    
+                    self.view.addSubview(label)
+                    self.label = label
+
+                    var button = UIButton()
+                    button.frame = CGRect.init(150, 250, 60, 60)
+                    button.setTitle("Click", for: .normal)
+                    button.setTitleColor(UIColor.blue, for: .normal)
+                    self.addSubview(button)
+                
+                    button.addTarget(self, #selector(ViewController.incrementCount), for: UIControlEvents.touchUpInside)
+                }
+
+                func incrementCount() {
+                    self.count = self.count + 1
+                    self.label.text = "\(self.count)"
+                }
+            }
+                            </code>
+                        </pre>
+                    </p>
+                    <p>
+                        In this new method call, you can see the three things we talked about. The target, which is self, the
+                        method to use, which is incrementCount(), and the control event, which is touchUpInside.
+                    </p>
+                    <p>
+                        Notice that we are adding the target object to the button.
+                    </p>
+                    <p>
+                        A method like the addTarget() method, is sometimes called a callback method. We've configured the button so
+                        it'll call back when an event occurs. The method was designed to call back the controller.
+                    </p>
+                    <p>
+                        So, an action is used to let control objects call back the view controller. This means they can call methods on the view controller.
+                        Outlets, like our label, work in the other direction, because the view controller calls methods on them.
+                    </p>
+        </div>

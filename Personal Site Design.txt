@@ -1,0 +1,91 @@
+The personal site should contain navigation options for:
+	Home/Logo	- Introduction
+	Photo Album	- one page, pagination
+	Projects	- Portfolio
+	Learning	- List of things to learn/being learnt
+	Blog?
+	About
+
+The site should
+	* be responsive
+	* use semantic tags
+	* contain a header and a footer
+
+
+Look
+	Wooden
+	Organic
+	Grass
+	Trees
+	Twigs
+	Hemp
+	Seeds
+	Watercolour
+	Oil?
+	Pencil?
+
+There's no sense in repeating things like the header and the footer so you might as well use PHP. This will come after designing. Also worth having a database to store things like blog entries.
+
+
+
+Brainstorming
+
+Trees down the sides of the page. Branches holding navigation up? Not sure I like it. Good idea, but not liking.
+
+
+
+1.	Create a page template for the home page. Get it into git.
+2.	What width should the main content be? 940px?
+3.	Get a horizontal menu in there.
+4.	Add the framework for responsiveness as created in your course.
+
+
+
+For the learning page:
+
+JS
+Swift
+HTML
+CSS
+Java
+C++
+PHP
+Python
+
+Web Frameworks
+
+Knockout
+
+APIs
+Wikipedia
+Google
+
+
+Siloette Image
+
+"Let your machine be a part of you, don't become a component of it."
+
+
+Hi, my name's Ash and I've created a website. With it I intend to spew out my brain in the most organised manner that I can. It's for my benefit, because here I'll store notes, thoughts, pictures and anything I'd like to refer back to. Hopefully some of it will enable others to learn as well. I'm also going to try and learn a little about design, since web design isn't as easy as development and it's a skill I want to develop.
+
+Tree picture:
+
+In the beginning of the digital age, it's important to keep perspective. To hold on to what your human brain is capable of embracing. We are not machines, like our digital tools, and we were not here to be a component of them.
+
+In order to make the most of technology, I believe it's important to enjoy the learning process of how computers work. It's possible to find excitement in how things fit together and work as a whole, without staring at your computer's representation of this to such a degree that it's detremental to your health.
+
+Computers are about abstraction. Starting with a single transistor, to millions of them allowing us to program a computer with complex computer languages with human-like terms.
+
+Remember who you are, and where you came from.
+
+
+
+
+
+
+
+
+
+
+Skull - Learn to draw a skull.
+Tree - Learn to draw a tree.

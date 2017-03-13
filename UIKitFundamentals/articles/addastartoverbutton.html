@@ -1,0 +1,51 @@
+<div>
+    <p>
+        The tutor explains that it would be nice to have button that you
+        could use at the end of the story to be able to run through different
+        scenarios from the beginning again.
+    </p>
+    <p>
+        Create a new subclass of ViewController named MYOAViewController.swift
+        and remember to change the name of the class as well. Now go to the identity
+        inspector and change the class the view controller uses to the custom class.
+        You can do this for all of your views.
+    </p>
+    <p>
+        Inside the custom class, add the following code:
+    </p>
+    <p>
+        <code>
+            <pre>
+class MYOAViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.rightBarButton = UIBarButtonItem(title: "Start Over", style .plain, target: self, action: #selector(startOver))
+    }
+
+    func startOver() {
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
+    }
+}
+            </pre>
+        </code>
+    </p>
+    <p>
+        Every view controller has a property called navigationItem. This can be used
+        to control the title and buttons.
+    </p>
+    <p>
+        Every view controller also has a navigation controller property. It's an optional
+        that references the navigation controller that a given view controller is embedded in.
+        Given this, when a view controller recieves the notification to start over, it can communicate
+        with the navigation controller.
+    </p>
+    <img src="../img/MYOA1.png">
+</div>
+
+
+
+
+</div>

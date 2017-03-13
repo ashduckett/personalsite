@@ -1,0 +1,55 @@
+<div>
+    <p>
+        UITableViews have two delegate protocols with a total of 44 methods.
+    </p>
+    <p>
+        The two protocols are UITableViewDelegate which governs responses to user
+        events and UITableViewDataSource which enables the UITableView to access data
+        and cells.
+    </p>
+    <p>
+        The UITableView uses its delegate protocol to ask event questions like these:
+    </p>
+    <ul>
+        <li>What should happen when a button in a cell is tapped?</li>
+        <li>What should be the response to cell selection?</li>
+        <li>How should I respond when a user begins editing a row?</li>
+        <li>What should happen when a cell is deselected?</li>
+    </ul>
+    <p>
+        The table uses its data source to ask data questions
+    </p>
+    <ul>
+        <li>How many rows do I have?</li>
+        <li>How many sections do I have?</li>
+        <li>What are the titles for the sections?</li>
+        <li>What is the cell view for each row?</li>
+    </ul>
+    <h3>TableView Delegate Method Signatures</h3>
+    <p>
+        When we were looking at the protocol methods for the TextView delegate, the first
+        argument was the TextField itself. It'll be the same for the TableView's pair of 
+        protocols.
+    </p>
+    <p>
+        <code>
+            <pre>
+                func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+            </pre>
+        </code>
+    </p>
+    <p>
+        Notice above that there is an argument above named IndexPath. This is a struct with two members; row and section.
+        When the table wants to get the cell for a particular row, it will invoke a method asking for the cell and it will pass
+        in an IndexPath property with the row property set.
+    </p>
+    <p>
+        Similarly, when a table wants to alert its delegate that a row was selected, it will invoke the appropriate method, and
+        passes in an IndexPath object with the row property set.
+    </p>
+
+
+
+
+
+</div>
